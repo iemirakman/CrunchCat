@@ -140,4 +140,16 @@ dist
 # Vite files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# frontend bağımlılıkları ve derleme çıktıları
+node_modules/
+dist/
+build/
+
+# backend (Rust) derleme çıktıları
+src-tauri/target/
+
+# Çevresel değişkenler (gizli API key'ler vb.)
+.env
+.env.local
 .vite/
