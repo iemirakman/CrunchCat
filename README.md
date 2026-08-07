@@ -5,6 +5,7 @@
 
   **A headless, native macOS droplet that reduces file compression and extraction to a single OS-level gesture: drag, drop, done.**
 
+  [![CI](https://img.shields.io/github/actions/workflow/status/iemirakman/CrunchCat/rust.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=CI)](https://github.com/iemirakman/CrunchCat/actions/workflows/rust.yml)
   [![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
   [![Tauri](https://img.shields.io/badge/Tauri_v2-24C8DB?style=for-the-badge&logo=tauri&logoColor=white)](https://tauri.app/)
   [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
