@@ -10,6 +10,7 @@
   [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
   [![macOS](https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/macos/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+  [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21842473-005EB8?style=for-the-badge)](https://doi.org/10.5281/zenodo.21842473)
 </div>
 
 ---
