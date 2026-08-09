@@ -12,5 +12,5 @@ tauri-build = { version = "2", features = [] }
 tauri = { version = "2", features = ["macos-private-api"] }
 sevenz-rust = "0.6.1"
 unrar = "0.5.8"
-zip = "4.6.1"
+zip = "8.6.0"
 walkdir = "2"
