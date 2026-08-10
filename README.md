@@ -18,6 +18,10 @@
 
 ---
 
+🌍 *Read this in other languages: [English](README.md), [Türkçe](README.tr.md).*
+
+---
+
 ## 🚀 Overview
 
 Conventional archive utilities impose a fixed interaction cost regardless of task complexity: launch the application, wait for the window, navigate a file picker, select an operation. For the overwhelming majority of archive operations, this cost is disproportionate to the task itself.
