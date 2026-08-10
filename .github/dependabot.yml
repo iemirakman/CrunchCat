@@ -1,6 +1,6 @@
 version: 2
 updates:
-  # Frontend (npm) tarafı
+  # Frontend 
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -9,7 +9,7 @@ updates:
     commit-message:
       prefix: "chore(deps-dev)"
 
-  # Backend (Rust/Cargo) tarafı
+  # Backend 
   - package-ecosystem: "cargo"
     directory: "/src-tauri"
     schedule:
