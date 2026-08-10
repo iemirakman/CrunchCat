@@ -1,0 +1,16 @@
+[package]
+name = "crunchcat"
+version = "0.1.0"
+description = "A silent macOS droplet that extracts archives dropped onto the app icon."
+authors = ["you"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["macos-private-api"] }
+sevenz-rust = "0.6.1"
+unrar = "0.5.8"
+zip = "4.6.1"
+walkdir = "2"

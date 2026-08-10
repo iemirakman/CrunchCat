@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "CrunchCat",
+  "version": "0.1.0",
+  "identifier": "com.crunchcat.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "CrunchCat",
+        "width": 350,
+        "height": 220,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "shadow": false,
+        "skipTaskbar": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "fileAssociations": [
+      {
+        "ext": [
+          "zip"
+        ],
+        "name": "ZIP Archive",
+        "mimeType": "application/zip",
+        "role": "Editor"
+      },
+      {
+        "ext": [
+          "rar"
+        ],
+        "name": "RAR Archive",
+        "mimeType": "application/vnd.rar",
+        "role": "Editor"
+      },
+      {
+        "ext": [
+          "7z"
+        ],
+        "name": "7-Zip Archive",
+        "mimeType": "application/x-7z-compressed",
+        "role": "Editor"
+      }
+    ],
+    "macOS": {
+      "infoPlist": "Info.plist"
+    }
+  }
+}
