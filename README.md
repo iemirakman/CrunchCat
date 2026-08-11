@@ -18,7 +18,12 @@
 
 ---
 
-🌍 *Read this in other languages: [English](README.md), [Türkçe](README.tr.md).*
+<div align="center">
+
+[![Türkçe](https://img.shields.io/badge/Dil-T%C3%BCrk%C3%A7e-red.svg?style=for-the-badge)](README-tr.md)
+[![English](https://img.shields.io/badge/Language-English-blue.svg?style=for-the-badge)](README.md)
+
+</div>
 
 ---
 
