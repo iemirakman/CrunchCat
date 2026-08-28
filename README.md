@@ -25,15 +25,21 @@
 
 </div>
 
+---
+
 <div align="center">
-  <br>
-  <a href="#overview">Overview</a> •
-  <a href="#key-features">Features</a> •
-  <a href="#architecture--engineering">Architecture</a> •
-  <a href="#installation--build">Installation</a> •
-  <a href="#usage-workflow">Usage</a> •
-  <a href="#contributing">Contributing</a>
-  <br><br>
+  <table>
+    <tr>
+      <td align="left">
+        <a href="#-overview"><img src="https://img.shields.io/badge/01-Overview-000000?style=for-the-badge" alt="Overview" /></a><br>
+        <a href="#-key-features"><img src="https://img.shields.io/badge/02-Key_Features-1F2228?style=for-the-badge" alt="Features" /></a><br>
+        <a href="#-architecture--engineering"><img src="https://img.shields.io/badge/03-Architecture-000000?style=for-the-badge" alt="Architecture" /></a><br>
+        <a href="#-installation--build"><img src="https://img.shields.io/badge/04-Installation-1F2228?style=for-the-badge" alt="Installation" /></a><br>
+        <a href="#-usage-workflow"><img src="https://img.shields.io/badge/05-Usage-000000?style=for-the-badge" alt="Usage" /></a><br>
+        <a href="#-contributing"><img src="https://img.shields.io/badge/06-Contributing-1F2228?style=for-the-badge" alt="Contributing" /></a>
+      </td>
+    </tr>
+  </table>
 </div>
 
 ---
