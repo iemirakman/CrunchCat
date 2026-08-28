@@ -31,12 +31,12 @@
   <table>
     <tr>
       <td align="left">
-        <a href="#-overview"><img src="https://img.shields.io/badge/01-Overview-000000?style=for-the-badge" alt="Overview" /></a><br>
-        <a href="#-key-features"><img src="https://img.shields.io/badge/02-Key_Features-1F2228?style=for-the-badge" alt="Features" /></a><br>
-        <a href="#-architecture--engineering"><img src="https://img.shields.io/badge/03-Architecture-000000?style=for-the-badge" alt="Architecture" /></a><br>
-        <a href="#-installation--build"><img src="https://img.shields.io/badge/04-Installation-1F2228?style=for-the-badge" alt="Installation" /></a><br>
-        <a href="#-usage-workflow"><img src="https://img.shields.io/badge/05-Usage-000000?style=for-the-badge" alt="Usage" /></a><br>
-        <a href="#-contributing"><img src="https://img.shields.io/badge/06-Contributing-1F2228?style=for-the-badge" alt="Contributing" /></a>
+        <a href="#overview"><img src="https://img.shields.io/badge/01-Overview-000000?style=for-the-badge" alt="Overview" /></a><br>
+        <a href="#key-features"><img src="https://img.shields.io/badge/02-Key_Features-1F2228?style=for-the-badge" alt="Features" /></a><br>
+        <a href="#architecture--engineering"><img src="https://img.shields.io/badge/03-Architecture-000000?style=for-the-badge" alt="Architecture" /></a><br>
+        <a href="#installation--build"><img src="https://img.shields.io/badge/04-Installation-1F2228?style=for-the-badge" alt="Installation" /></a><br>
+        <a href="#usage-workflow"><img src="https://img.shields.io/badge/05-Usage-000000?style=for-the-badge" alt="Usage" /></a><br>
+        <a href="#contributing"><img src="https://img.shields.io/badge/06-Contributing-1F2228?style=for-the-badge" alt="Contributing" /></a>
       </td>
     </tr>
   </table>
@@ -123,9 +123,6 @@ npm run tauri build
 ---
 
 ## Usage Workflow
-
-<!-- PRO TIP: You can add a short GIF here demonstrating the workflow -->
-<!-- ![CrunchCat Demo](https://raw.githubusercontent.com/iemirakman/CrunchCat/main/src/assets/demo.gif) -->
 
 1. **First-Run Setup:** Launch `CrunchCat.app`. A transparent setup window appears. Confirm the prompt to authorize the creation of the CrunchCat droplet alias on the Desktop.
 2. **Auto-Termination:** On confirmation, the window is permanently destroyed.
