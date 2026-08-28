@@ -27,19 +27,38 @@
 
 ---
 
+<div align="center">
+
+[![Overview](https://img.shields.io/badge/01-Overview-000000?style=for-the-badge)](#-overview)
+[![Features](https://img.shields.io/badge/02-Key_Features-1F2228?style=for-the-badge)](#-key-features)
+[![Architecture](https://img.shields.io/badge/03-Architecture-000000?style=for-the-badge)](#-architecture--engineering)
+[![Installation](https://img.shields.io/badge/04-Installation-1F2228?style=for-the-badge)](#-installation--build)
+[![Usage](https://img.shields.io/badge/05-Usage-000000?style=for-the-badge)](#-usage-workflow)
+[![Contributing](https://img.shields.io/badge/06-Contributing-1F2228?style=for-the-badge)](#-contributing)
+
+</div>
+
+---
+
 ## 🚀 Overview
 
 Conventional archive utilities impose a fixed interaction cost regardless of task complexity: launch the application, wait for the window, navigate a file picker, select an operation. For the overwhelming majority of archive operations, this cost is disproportionate to the task itself.
 
-CrunchCat removes the interaction entirely. It revives the **droplet** pattern and reimplements it as a compiled, natively distributed Rust and Tauri application highly optimized for Apple Silicon architectures. Rather than exposing a UI to drop files *into*, CrunchCat registers itself with macOS Launch Services as a generic document handler and resides on the Desktop as an inert icon. The operating system delivers the file; the application decides, in the background and without supervision, what to do with it.
+> **CrunchCat removes the interaction entirely. The file-system side effect *is* the interface.**
+
+It revives the **droplet** pattern and reimplements it as a compiled, natively distributed Rust and Tauri application highly optimized for Apple Silicon architectures. Rather than exposing a UI to drop files *into*, CrunchCat registers itself with macOS Launch Services as a generic document handler and resides on the Desktop as an inert icon. The operating system delivers the file; the application decides, in the background and without supervision, what to do with it.
+
+---
 
 ## ✨ Key Features
 
 - **Automatic Dual-Mode Dispatch:** A single drop target infers intent from the dropped item itself: recognized archives are extracted, all other files or folders are compressed. No mode selection, no dialogs.
-- **Fully Headless Steady-State Operation:** Beyond a one-time setup, CrunchCat presents no window, no dock-based interaction, and no progress UI. The file-system side effect *is* the interface.
+- **Fully Headless Steady-State Operation:** Beyond a one-time setup, CrunchCat presents no window, no dock-based interaction, and no progress UI. 
 - **OS-Registered Drop Target:** File delivery is handled by Finder and Launch Services, not JavaScript drag-and-drop listeners. CrunchCat does not need to be running, frontmost, or loaded into memory prior to a drop.
 - **Non-Blocking Native Concurrency:** Every archive operation executes on a dedicated OS thread (`std::thread::spawn`), isolated from Tauri's main event loop, ensuring zero IPC bottleneck regardless of payload size.
 - **Ephemeral Setup Interface:** A transparent, frameless, premium dark-mode interface exists exclusively to establish the Desktop droplet on the first run, and self-terminates immediately after.
+
+---
 
 ## 🧠 Architecture & Engineering
 
@@ -59,28 +78,34 @@ flowchart TD
 ```
 
 ### True Native macOS Droplet Registration
-CrunchCat is not an application with a drag-and-drop zone rendered inside a window. By injecting `CFBundleDocumentTypes` declarations into the bundle's `Info.plist`, macOS's **Launch Services** database reads this manifest and permits Finder to treat the compiled `.app` as a valid target for arbitrary file drops. The drop target is the Desktop `.app` alias itself; the delivery mechanism is the OS's native document-opening pipeline.
+By injecting `CFBundleDocumentTypes` declarations into the bundle's `Info.plist`, macOS's **Launch Services** database reads this manifest and permits Finder to treat the compiled `.app` as a valid target for arbitrary file drops. The drop target is the Desktop `.app` alias itself.
 
 ### Asynchronous Dual-Engine Processing in Rust
-A drop delivered by Finder is surfaced to the Rust runtime as a `tauri::RunEvent::Opened` event. On receipt, the core inspects the path and dispatches to either the **compression engine** or the **extraction engine**. This work executes inside a dedicated background thread. Offloading to a background thread guarantees the application remains responsive to subsequent OS events.
+A drop delivered by Finder is surfaced to the Rust runtime as a `tauri::RunEvent::Opened` event. On receipt, the core inspects the path and dispatches to either the **compression engine** or the **extraction engine** via a dedicated background thread, guaranteeing the application remains responsive to subsequent OS events.
 
-### Ephemeral & Headless UI Lifecycle
-On first launch, Tauri renders a transparent, frameless window. Its only function is to obtain explicit approval for creating the Desktop droplet alias. Upon approval, the frontend issues a single `invoke()` call to trigger the alias's creation, then immediately requests its own OS-level destruction:
+### Ephemeral UI Lifecycle
+Upon the first launch, the frontend issues a single `invoke()` call to trigger the alias's creation, then immediately requests its own OS-level destruction:
 
 ```rust
 app.get_webview_window("main").unwrap().hide().unwrap();
 ```
 
-Once hidden, CrunchCat presents no window and executes no further frontend code—it exists as a dormant, OS-registered handler.
+---
 
 ## 🛠 Installation & Build
 
-### Prerequisites
-- macOS (Apple Silicon or Intel)
-- Node.js & npm
-- Rust (`cargo`)
+### Quick Install (macOS)
+The easiest and recommended way to install CrunchCat is via **Homebrew Cask**. 
 
-### Build Steps
+```bash
+# 1. Add the custom tap to your Homebrew
+brew tap iemirakman/crunchcat [https://github.com/iemirakman/CrunchCat](https://github.com/iemirakman/CrunchCat)
+
+# 2. Install the application
+brew install --cask crunchcat
+```
+
+### Build from Source (For Developers)
 
 ```bash
 # Clone the repository
@@ -93,16 +118,24 @@ npm install
 # Compile the optimized, production release bundle
 npm run tauri build
 ```
+*(On completion, the `.dmg` installer will be written to `src-tauri/target/release/bundle/dmg/`)*
 
-On completion, the distributable `.dmg` installer and `.app` bundle will be written to:
-`src-tauri/target/release/bundle/dmg/`
+---
 
 ## 📦 Usage Workflow
 
+<!-- PRO TIP: Kendi kaydettiğin kısa bir ekran kaydını (GIF) buraya ekleyerek projeni çok daha dikkat çekici hale getirebilirsin. Örnek kullanım aşağıdadır: -->
+<!-- ![CrunchCat Demo](https://raw.githubusercontent.com/iemirakman/CrunchCat/main/src/assets/demo.gif) -->
+
 1. **First-Run Setup:** Launch `CrunchCat.app`. A transparent setup window appears. Confirm the prompt to authorize the creation of the CrunchCat droplet alias on the Desktop.
-2. **Auto-Termination:** On confirmation, the window is destroyed.
-3. **Steady-State Workflow:** Drag any file, folder, or archive onto the CrunchCat Desktop icon. It silently determines the correct operation and executes it in the background.
+2. **Auto-Termination:** On confirmation, the window is permanently destroyed.
+3. **Steady-State Workflow:** Drag any file, folder, or archive onto the CrunchCat Desktop icon. It silently determines the correct operation and executes it natively in the background.
+
+---
+
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome! 
+Feel free to check the [issues page](https://github.com/iemirakman/CrunchCat/issues) if you want to contribute to the core Rust logic or the deployment pipelines.
 
 ## 📄 License
-
-CrunchCat is distributed under the MIT License. See `LICENSE` for full terms.
+CrunchCat is distributed under the **MIT License**. See `LICENSE` for full terms.
