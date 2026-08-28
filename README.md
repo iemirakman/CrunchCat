@@ -25,22 +25,20 @@
 
 </div>
 
----
-
 <div align="center">
-
-[![Overview](https://img.shields.io/badge/01-Overview-000000?style=for-the-badge)](#-overview)
-[![Features](https://img.shields.io/badge/02-Key_Features-1F2228?style=for-the-badge)](#-key-features)
-[![Architecture](https://img.shields.io/badge/03-Architecture-000000?style=for-the-badge)](#-architecture--engineering)
-[![Installation](https://img.shields.io/badge/04-Installation-1F2228?style=for-the-badge)](#-installation--build)
-[![Usage](https://img.shields.io/badge/05-Usage-000000?style=for-the-badge)](#-usage-workflow)
-[![Contributing](https://img.shields.io/badge/06-Contributing-1F2228?style=for-the-badge)](#-contributing)
-
+  <br>
+  <a href="#overview">Overview</a> •
+  <a href="#key-features">Features</a> •
+  <a href="#architecture--engineering">Architecture</a> •
+  <a href="#installation--build">Installation</a> •
+  <a href="#usage-workflow">Usage</a> •
+  <a href="#contributing">Contributing</a>
+  <br><br>
 </div>
 
 ---
 
-## 🚀 Overview
+## Overview
 
 Conventional archive utilities impose a fixed interaction cost regardless of task complexity: launch the application, wait for the window, navigate a file picker, select an operation. For the overwhelming majority of archive operations, this cost is disproportionate to the task itself.
 
@@ -50,7 +48,7 @@ It revives the **droplet** pattern and reimplements it as a compiled, natively d
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - **Automatic Dual-Mode Dispatch:** A single drop target infers intent from the dropped item itself: recognized archives are extracted, all other files or folders are compressed. No mode selection, no dialogs.
 - **Fully Headless Steady-State Operation:** Beyond a one-time setup, CrunchCat presents no window, no dock-based interaction, and no progress UI. 
@@ -60,7 +58,7 @@ It revives the **droplet** pattern and reimplements it as a compiled, natively d
 
 ---
 
-## 🧠 Architecture & Engineering
+## Architecture & Engineering
 
 CrunchCat's architecture inverts the conventional relationship between a Tauri application's native core and its web-based frontend. CrunchCat treats the **Rust core as the application** and the **React/TypeScript frontend as a transient, dispensable setup surface**.
 
@@ -92,17 +90,13 @@ app.get_webview_window("main").unwrap().hide().unwrap();
 
 ---
 
-## 🛠 Installation & Build
+## Installation & Build
 
 ### Quick Install (macOS)
 The easiest and recommended way to install CrunchCat is via **Homebrew Cask**. 
 
 ```bash
-# 1. Add the custom tap to your Homebrew
-brew tap iemirakman/crunchcat [https://github.com/iemirakman/CrunchCat](https://github.com/iemirakman/CrunchCat)
-
-# 2. Install the application
-brew install --cask crunchcat
+brew install --cask iemirakman/tap/crunchcat
 ```
 
 ### Build from Source (For Developers)
@@ -122,9 +116,9 @@ npm run tauri build
 
 ---
 
-## 📦 Usage Workflow
+## Usage Workflow
 
-<!-- PRO TIP: Kendi kaydettiğin kısa bir ekran kaydını (GIF) buraya ekleyerek projeni çok daha dikkat çekici hale getirebilirsin. Örnek kullanım aşağıdadır: -->
+<!-- PRO TIP: You can add a short GIF here demonstrating the workflow -->
 <!-- ![CrunchCat Demo](https://raw.githubusercontent.com/iemirakman/CrunchCat/main/src/assets/demo.gif) -->
 
 1. **First-Run Setup:** Launch `CrunchCat.app`. A transparent setup window appears. Confirm the prompt to authorize the creation of the CrunchCat droplet alias on the Desktop.
@@ -133,9 +127,9 @@ npm run tauri build
 
 ---
 
-## 🤝 Contributing
+## Contributing
 Contributions, issues, and feature requests are welcome! 
 Feel free to check the [issues page](https://github.com/iemirakman/CrunchCat/issues) if you want to contribute to the core Rust logic or the deployment pipelines.
 
-## 📄 License
+## License
 CrunchCat is distributed under the **MIT License**. See `LICENSE` for full terms.
