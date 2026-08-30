@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+authors:
+  - family-names: "Akman"
+    given-names: "İbrahim Emir"
+    orcid: "https://orcid.org/0009-0009-4796-7802"
+title: "CrunchCat"
+version: 1.0.0
+date-released: 2026-08-30
+url: "https://github.com/iemirakman/CrunchCat"
